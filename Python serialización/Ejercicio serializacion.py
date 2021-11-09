@@ -54,7 +54,7 @@ def modificarAlumno():
     nota = txtNota.get()
     try:
         alumno = Alumno(nombre, apellidos, int(edad), float(nota))
-        listaAlumnos[1] = alumno
+        listaAlumnos[tree.selection()[0]] = alumno
         guardarCambios()
         borrarCampos()
         rellenarTabla()
@@ -86,6 +86,7 @@ def rellenarTabla():
 
 
 def itemSeleccionado(event):
+    print()
     if(len(tree.selection())):
         borrarCampos()
         item = tree.item(tree.selection()[0])
@@ -108,28 +109,28 @@ if __name__ == '__main__':
     window.configure(padx=10, pady=10)
     window.geometry("900x400")
 
-    lblNombre = Label(window, text="Nombre", font=("Arial Bold", 10),)
+    lblNombre = Label(window, text="Nombre", font=("Arial Bold", 10))
     lblNombre.grid(column=0, row=0, pady=10)
 
     txtNombre = Entry(window, width=10)
     txtNombre.grid(column=1, row=0, pady=10)
     txtNombre.configure(width=20)
 
-    lblApellidos = Label(window, text="Apellidos", font=("Arial Bold", 10), )
+    lblApellidos = Label(window, text="Apellidos", font=("Arial Bold", 10))
     lblApellidos.grid(column=2, row=0, pady=10)
 
     txtApellidos = Entry(window, width=10)
     txtApellidos.grid(column=3, row=0, pady=10)
     txtApellidos.configure(width=20)
 
-    lblEdad = Label(window, text="Edad", font=("Arial Bold", 10), )
+    lblEdad = Label(window, text="Edad", font=("Arial Bold", 10))
     lblEdad.grid(column=0, row=1,pady=10)
 
     txtEdad = Entry(window, width=10)
     txtEdad.grid(column=1, row=1, pady=10)
     txtEdad.configure(width=20)
 
-    lblNota = Label(window, text="Nota", font=("Arial Bold", 10), )
+    lblNota = Label(window, text="Nota", font=("Arial Bold", 10))
     lblNota.grid(column=2, row=1, pady=10)
 
     txtNota = Entry(window, width=10)
